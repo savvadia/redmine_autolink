@@ -1,0 +1,45 @@
+<%- 
+baseurl = Redmine::Utils.relative_url_root
+helpImg = baseurl + "/images/help.png"
+
+%>
+<%= error_messages_for 'autolink' %>
+<div class="box tabular" style="background-color: white;">
+
+<h4><%= l(:autolink_help) %></h4>
+<p class="icon icon-help">
+</p>
+<p class="help_content">
+  <%= l(:autolink_pattern) %>: a mask applied to all text fields including comments <br />   
+  <%= l(:autolink_link_replacement) %>: a valid link address which can include \1, \2 ... \n references to groups specified in the mask <br />
+  <%= l(:autolink_title_replacement) %>: a link title which can include \1, \2 ... \n references to groups specified in the mask <br />
+</p>
+<h4><%= l(:autolink_example) %></h4>
+<p class="help_content">
+  <%= l(:autolink_pattern) %>: (BUG-[0-9]+) <br />
+  <%= l(:autolink_link_replacement) %>: http://bug.tracker/\1 <br />
+  <%= l(:autolink_title_replacement) %>: \1 <br />
+  Then the following text <br />
+  "This problem is very similar to BUG-153 or BUG-123." <br />
+  will be replaced with <br />
+  "This problem is very similar to <a href="http://bug.tracker/BUG-153">BUG-153</a> or <a href="http://bug.tracker/BUG-123">BUG-123</a>."
+</p>
+
+<fieldset class="issue">
+<p>
+<%= f.text_field :pattern, :required => true, :label => l(:autolink_pattern), :style => "overflow:auto;" %>
+</p>
+</fieldset>
+<p>
+<%= f.text_field :link_replacement, :required => true, :label => l(:autolink_link_replacement), :style => "overflow:auto;" %>
+</p>
+<p>
+<%= f.text_field :title_replacement, :required => true, :label => l(:autolink_title_replacement), :style => "overflow:auto;" %>
+</p>
+
+</div>
+
+
+
+
+

@@ -1,0 +1,16 @@
+# English strings go here for Rails i18n
+en:
+  autolinks: Autolinks
+  autolink: Autolink
+  autolink_pattern: Pattern
+  autolink_link_replacement: Link replacement
+  autolink_title_replacement: Title replacement
+  permission_manage_autolinks: "Manage Templates"
+  permission_edit_autolinks: "Edit Autolinks"
+  permission_show_autolinks: "Show Autolinks"  
+  project_module_autolinks: "Autolinks"
+  label_list_autolinks: "List of Autolinks"
+  label_autolink_replacement_masks: "Replacement masks"
+  autolink_help: Help
+  autolink_example: Example
+  

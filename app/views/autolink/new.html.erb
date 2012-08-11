@@ -1,0 +1,20 @@
+<div class="contextual">
+<%= link_to(l(:label_list_autolinks),
+              {:controller => 'autolink',
+              :action => :index}, :class => 'issue') %> 
+</div>
+<h2 class="template"><%=h "#{l(:autolinks)} / #{l(:button_add)}" %></h2>
+<div class="box">
+  <%= error_messages_for 'autolink' %>
+  <% labelled_tabular_form_for :autolink,  @autolink, 
+     :url => { :controller => 'autolink', :action => 'new' },
+     :html => { :id => 'autolink-form',
+     :class => nil, :multipart => false } do |f| %> 
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <%= submit_tag l(:button_apply) %>
+  <% end %>
+  
+  <%= link_to l(:button_cancel), {:action => 'index'}, :confirm => l(:text_are_you_sure) %>
+	  
+</div>
+

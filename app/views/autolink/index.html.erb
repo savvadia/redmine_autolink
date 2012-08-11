@@ -1,0 +1,33 @@
+<h2>Autolink</h2>
+
+<div class="contextual">
+  <%= link_to(l(:label_new), 
+    {:controller => 'autolink', :action => 'new'}, 
+    :class => 'icon icon-add', :onclick => 'Element.show("add-autolink"); return false;') %>
+</div>
+
+<table class="list issues">
+  <thead>
+    <tr>
+      <th><%= sort_header_tag 'id', :caption => '#' %></th> 
+      <th><%= sort_header_tag 'pattern', :caption => l(:autolink_pattern) %></th>
+      <th><%= sort_header_tag 'link_replacement', :caption =>  l(:autolink_link_replacement) %></th>
+      <th><%= sort_header_tag 'title_replacement', :caption => l(:autolink_title_replacement) %></th> 
+    </tr>
+  </thead>
+  <tbody>
+    <% @autolinks.each do |autolink| %>
+      <tr class="<%= cycle("odd", "even") %> autolink issue">
+        <td colspan="2"><%= link_to h(autolink.id),  {:controller => 'autolink', 
+                 :action => 'edit', :id => autolink.id}, {:title => autolink.pattern } %></td>
+        <td colspan="2"><%= link_to h(autolink.pattern),  {:controller => 'autolink', 
+                 :action => 'edit', :id => autolink.id}, {:title => autolink.pattern } %></td>
+        <td colspan="2"><%=h autolink.link_replacement %></td>
+        <td colspan="2"><%=h autolink.title_replacement %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+			
+
